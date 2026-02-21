@@ -1,0 +1,45 @@
+PROPUESTA ESTRATÉGICA: PRODUCT OWNER – CÉLULA BIT (IA)
+Hacia una Arquitectura de Inteligencia Conversacional y Transaccional
+Presentado por: Arq. Martín Xavier Urtasun Rubio
+Fecha: Febrero 2026
+
+1. INTRODUCCIÓN Y MOTIVACIÓN
+En el contexto de la transformación digital que lideran las nuevas Tribus, encuentro en el rol de Product Owner la oportunidad ideal para canalizar mi vocación de gestión hacia el mundo digital, aportando una mirada integral que combine negocio, cliente y tecnología.
+Considero que existe un paralelismo natural entre mi formación como arquitecto y el rol de PO. Mi formación me estructuró para trabajar por proyectos, gestionar recursos finitos, tomar decisiones bajo restricciones y resolver problemas complejos en entornos cambiantes. Si bien la teoría define al PO como quien “maximiza el valor del producto”, mi trayectoria de 15 años dentro del Banco me lleva a una definición más pragmática: el PO es quien garantiza que cada hora de desarrollo se traduzca en soluciones reales para el cliente y en resultados concretos para el negocio, siempre alineado a los pilares del Plan Estratégico.
+Mi interés en la Célula BIT nace de una búsqueda consciente de evolución profesional. Me motiva profundamente el desafío de aplicar mis capacidades de gestión en la infraestructura digital de IA del Banco, integrando mi curiosidad constante por la tecnología con una visión estratégica de servicio.
+
+2. EL ROL DEL PO EN LA CÉLULA BIT: LIDERAZGO Y VISIÓN
+• Liderazgo de Expertos: Coordinar un equipo de alta especialización (Data, UX Writing, Devs de APIs) bajo una cultura facilitadora, eliminando bloqueos para que el equipo se enfoque en innovar mientras yo gestiono las expectativas externas.
+• Articulación de Stakeholders: Traducir las necesidades de las distintas áreas en requerimientos técnicos priorizados. Mi perfil me permite dialogar fluidamente con tecnología, comprendiendo los trade-offs entre alcance, tiempo y calidad.
+
+3. METODOLOGÍA DE TRABAJO: AGILIDAD APLICADA A LA IA
+A) Visión de Producto y Medición de Resultados (OKRs)
+• Métricas de Valor (Outcomes): Utilizar métricas como el CSAT (objetivo 85%) y los MAUs (clave para el objetivo del millón de clientes) como brújula para ajustar el rumbo del producto.
+• Decisiones Basadas en Datos: Priorizar el backlog con criterio de negocio, entendiendo qué funcionalidades de IA generan mayor impacto transaccional y ahorro operativo.
+B) El Backlog como el “Corazón” del Producto
+• Priorización con Autonomía: Evaluando continuamente valor, impacto y time to market. Utilizaré herramientas visuales de priorización para alinear al equipo y a los stakeholders.
+
+4. VISIÓN ESTRATÉGICA DE BIT: DE LO GUIADO A LO GENERATIVO
+• IA Generativa y Resolución: Trascender el formato de menús guiados hacia un modelo donde el cliente reciba una solución acorde a su lenguaje natural.
+• Eficiencia y Derivación: Optimizar el bot para que resuelva trámites de punta a punta, reduciendo la dependencia de atención humana "en vivo" mediante una gestión eficiente de backoffice.
+• BIT Transaccional: Impulsar la integración con APIs para que el cliente pueda realizar operaciones directas (ej: consultas de resumen, gestiones de préstamos) mediante código e IA.
+
+5. MIRADA DE CLIENTE: HACIA LA “FRICCIÓN CERO”
+• Reducción de Pasos: Diseñar flujos conversacionales que simplifiquen procesos complejos.
+• Validación Temprana: Implementar MVPs de nuevas funcionalidades de IA para validar hipótesis de uso antes de un despliegue masivo.
+• Integración con las Tribus: BIT debe estar sincronizado con cada Customer Journey, siendo el punto de resolución inmediata para los productos lanzados por las Tribus.
+
+6. BENCHMARKING Y OPORTUNIDADES DE MERCADO
+• Privados (Galicia/BBVA): Tienen bots muy fluidos; BIT puede superarlos en transaccionalidad profunda.
+• Públicos (Nación/Provincia): Tienen volumen; BIT puede diferenciarse por su capacidad de entendimiento (NLU) y personalización proactiva.
+• Oportunidad: Evolucionar hacia BIT Empresas, un nicho aún no explotado plenamente en canales conversacionales.
+
+7. PERFIL TÉCNICO Y GESTIÓN DE LA INCERTIDUMBRE
+• Curiosidad Técnica: Formación en Backend (Java, MySQL) y conocimiento en Hardware que facilitan el diálogo con el equipo técnico.
+• Proactividad ante lo desconocido: En IA, el aprendizaje es diario. Ante la incertidumbre, mi reacción es investigar y apoyarme en datos para construir respuestas.
+• Experiencia Interna: 15 años de conocimiento transversal del Banco que me permiten entender el impacto de BIT en toda la organización.
+
+8. CIERRE: POR QUÉ ESTE ROL Y POR QUÉ AHORA
+Estoy convencido de que mi perfil, que combina la solidez de la planificación arquitectónica con el hambre técnica por la IA, puede aportar valor inmediato. Cuento con la actitud, la formación continua y la orientación a resultados necesaria para escalar a BIT al nivel superior que el Banco demanda.
+
+Prototipo Interactivo: Como demostración de mi enfoque práctico en IA y UX, he desarrollado un prototipo de chatbot que sintetiza esta propuesta y muestra el potencial de mejora del canal. 

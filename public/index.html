@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIT Chat Demo | Martín Urtasun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="phone">
+      <header class="topbar">
+        <div class="avatar">MU</div>
+        <div>
+          <h1>Martín Urtasun · BIT</h1>
+          <p>En línea</p>
+        </div>
+      </header>
+
+      <section id="chat" class="chat"></section>
+
+
+      <form id="form" class="composer">
+        <input id="message" placeholder="Escribí un mensaje" autocomplete="off" required />
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
