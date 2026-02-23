@@ -22,6 +22,7 @@ Abrir `http://localhost:3000`.
 - `OPENAI_MODEL` (default: `gpt-4o-mini`)
 - `ADMIN_TOKEN` para proteger el guardado del plan
 - `PLAN_KV_KEY` (opcional, default: `bit_plan_text`)
+- `INTERACTIONS_KV_KEY` (opcional, default: `bit_interactions_log`)
 
 ## Dónde se guarda el plan
 
@@ -69,4 +70,5 @@ La app puede guardar un registro de interacciones (nombre + pregunta + fecha).
 - Vista: `http://localhost:3000/registros.html`
 - API: `GET /api/interactions`
 - Si definís `ADMIN_TOKEN`, para consultar la tabla tenés que cargar ese token en la pantalla de registros.
+- En Vercel, para persistir registros configurá KV (`KV_REST_API_URL`, `KV_REST_API_TOKEN`). Sin KV, el logging no rompe el chat aunque no persista.
 
