@@ -45,14 +45,18 @@ formEl.addEventListener('submit', async (e) => {
   if (!userName) {
     userName = text;
     addMessage(text, 'user');
-    addMessage(`¡Mucho gusto, ${userName}! 👋\nPuedo mostrarte todo el plan, sugerirte opciones concretas o conversar sobre cualquier duda que te haya surgido.\nSi querés, contame qué aspecto te interesa y lo vemos juntos.`);
+    addMessage(
+      `¡Mucho gusto, ${userName}! 👋\n` +
+      '¿Cómo preferís avanzar?\n' +
+      '1) Ver el plan completo (te muestro el índice y elegís qué sección ver).\n' +
+      '2) Que te sugiera opciones concretas.\n' +
+      '3) Contarme una duda puntual y lo vemos juntos.'
+    );
     return;
   }
 
   await sendToBot(text);
 });
-
-
 
 addMessage('¡Hola! Soy el asistente del plan de trabajo de Martín para Product Owner de BIT. 👋');
 addMessage('Primero, ¿cómo te llamás?');
