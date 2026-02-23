@@ -26,7 +26,11 @@ module.exports = async function handler(req, res) {
       return sendJson(res, 400, { error: 'Mensaje inválido.' });
     }
 
-    await addInteraction({ userName, question: message.trim() });
+    try {
+      await addInteraction({ userName, question: message.trim() });
+    } catch (_error) {
+      // logging no bloqueante
+    }
 
     const plan = await getPlan();
     const systemPrompt = buildSystemPrompt({ userName, plan });
