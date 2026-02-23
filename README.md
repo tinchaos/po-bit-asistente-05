@@ -73,3 +73,12 @@ La app puede guardar un registro de interacciones (nombre + pregunta + fecha).
 - Si definís `ADMIN_TOKEN`, para consultar la tabla tenés que cargar ese token en la pantalla de registros.
 - En Vercel, para persistir registros configurá KV (`KV_REST_API_URL`, `KV_REST_API_TOKEN`). Sin KV, el logging no rompe el chat aunque no persista.
 
+
+## Qué archivo modificar según lo que quieras cambiar
+
+- **Contenido del plan/perfil**: `data/plan.txt`
+- **Mensaje inicial y comportamiento del chat en pantalla**: `public/app.js`
+- **Estilo y sesgo de las respuestas del asistente (prompt)**: `lib/prompt.js`
+- **Guardado/lectura de registros**: `lib/interactions-store.js`
+- **Vista de tabla de registros**: `public/registros.html` y `public/registros.js`
+
