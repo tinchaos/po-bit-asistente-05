@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registros de consultas | BIT Chat Demo</title>
+  <title>BIT Chat Demo | Martín Urtasun</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -11,34 +11,25 @@
 </head>
 <body>
   <main class="layout">
-    <section class="phone logs-panel">
+    <section class="phone">
       <header class="topbar">
-        <div class="avatar">RG</div>
+        <div class="avatar">MU</div>
         <div>
-          <h1>Registros de consultas</h1>
-          <p>Nombre + pregunta + fecha</p>
+          <h1>Martín Urtasun · BIT</h1>
+          <p>En línea</p>
         </div>
       </header>
 
-      <div class="logs-controls">
-        <input id="adminToken" placeholder="ADMIN_TOKEN (si aplica)" autocomplete="off" />
-        <button id="loadBtn">Cargar registros</button>
-      </div>
+      <section id="chat" class="chat"></section>
 
-      <div class="logs-table-wrap">
-        <table class="logs-table">
-          <thead>
-            <tr>
-              <th>Fecha</th>
-              <th>Nombre</th>
-              <th>Pregunta</th>
-            </tr>
-          </thead>
-          <tbody id="rows"></tbody>
-        </table>
-      </div>
+
+      <form id="form" class="composer">
+        <input id="message" placeholder="Escribí un mensaje" autocomplete="off" required />
+        <button type="submit">Enviar</button>
+      </form>
     </section>
   </main>
-  <script src="/registros.js"></script>
+
+  <script src="/app.js"></script>
 </body>
 </html>
