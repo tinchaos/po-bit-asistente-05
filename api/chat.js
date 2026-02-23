@@ -15,10 +15,6 @@ module.exports = async function handler(req, res) {
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
     const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
 
-    if (!OPENAI_API_KEY) {
-      return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
-    }
-
     const message = req.body?.message;
     const userName = req.body?.userName;
 
@@ -30,6 +26,10 @@ module.exports = async function handler(req, res) {
       await addInteraction({ userName, question: message.trim() });
     } catch (_error) {
       // logging no bloqueante
+    }
+
+    if (!OPENAI_API_KEY) {
+      return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
     }
 
     const plan = await getPlan();
