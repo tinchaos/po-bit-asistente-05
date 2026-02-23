@@ -4,6 +4,15 @@ const inputEl = document.getElementById('message');
 
 let userName = '';
 
+
+function normalizeUserMessage(text) {
+  const normalized = text.trim().toLowerCase();
+  if (normalized === '1') return 'Quiero ver el plan completo.';
+  if (normalized === '2') return 'Sugerime opciones concretas.';
+  if (normalized === '3') return 'Tengo una duda puntual y quiero verla con vos.';
+  return text;
+}
+
 function addMessage(text, sender = 'bot') {
   const div = document.createElement('div');
   div.className = `msg ${sender}`;
@@ -55,7 +64,8 @@ formEl.addEventListener('submit', async (e) => {
     return;
   }
 
-  await sendToBot(text);
+  const mappedText = normalizeUserMessage(text);
+  await sendToBot(mappedText);
 });
 
 addMessage('¡Hola! Soy el asistente del plan de trabajo de Martín para Product Owner de BIT. 👋');
