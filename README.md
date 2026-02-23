@@ -57,8 +57,16 @@ Abrir `http://localhost:3000`.
    vercel --prod
    ```
 
-## Actualización del plan desde la UI
+## Actualización del plan
 
-- Panel derecho > "Actualizar plan".
-- Podés pegar texto o cargar archivo `.txt/.md`.
-- Al guardar, impacta al instante en las respuestas del bot.
+- Por API: `POST /api/plan` enviando `{ "plan": "..." }`.
+- Si configurás `ADMIN_TOKEN`, enviá header `x-admin-token`.
+
+## Registro de consultas
+
+La app puede guardar un registro de interacciones (nombre + pregunta + fecha).
+
+- Vista: `http://localhost:3000/registros.html`
+- API: `GET /api/interactions`
+- Si definís `ADMIN_TOKEN`, para consultar la tabla tenés que cargar ese token en la pantalla de registros.
+
