@@ -14,7 +14,7 @@ npm run check
 OPENAI_API_KEY=tu_api_key npm start
 ```
 
-Abrir `http://localhost:3000`.
+Abrir `http://localhost:3000` (chat principal).
 
 ## Variables de entorno
 
@@ -67,7 +67,8 @@ Abrir `http://localhost:3000`.
 
 La app puede guardar un registro de interacciones (nombre + pregunta + fecha).
 
-- Vista: `http://localhost:3000/registros.html`
+- Landing principal (chat): `http://localhost:3000/`
+- Vista de registros: `http://localhost:3000/registros.html`
 - API: `GET /api/interactions`
 - Si definís `ADMIN_TOKEN`, para consultar la tabla tenés que cargar ese token en la pantalla de registros.
 - En Vercel, para persistir registros configurá KV (`KV_REST_API_URL`, `KV_REST_API_TOKEN`). Sin KV, el logging no rompe el chat aunque no persista.
