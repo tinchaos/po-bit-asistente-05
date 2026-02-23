@@ -141,8 +141,3 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`Servidor disponible en http://localhost:${PORT}`);
 });
-
-  console.log(`Servidor disponible en http://localhost:${PORT}`);
-});
-
-
