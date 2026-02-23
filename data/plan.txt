@@ -5,215 +5,103 @@ Fecha: Febrero 2026
 
 1. INTRODUCCIÓN Y MOTIVACIÓN
 En el contexto de la transformación digital, encuentro en el rol de Product Owner la oportunidad ideal para canalizar mi vocación de gestión hacia el mundo digital, aportando una mirada integral que combine negocio, cliente y tecnología.
-
-Existe un paralelismo natural entre mi formación como arquitecto y el rol de PO. Mi trayectoria me estructuró para trabajar por proyectos, gestionar recursos finitos, tomar decisiones bajo restricciones y resolver problemas complejos en entornos cambiantes.
-
-Si bien la teoría define al PO como quien “maximiza el valor del producto”, mi experiencia de 15 años dentro del Banco me lleva a una definición más pragmática:
-- El PO es quien garantiza que cada hora de desarrollo se traduzca en soluciones reales para el cliente.
-- Y que esas soluciones impacten en resultados concretos para el negocio.
-- Todo, alineado a los pilares del Plan Estratégico y a las prioridades de las Tribus.
+Considero que existe un paralelismo natural entre mi formación como arquitecto y el rol de PO. Mi trayectoria me ha estructurado para trabajar por proyectos, gestionar recursos finitos, tomar decisiones bajo restricciones y resolver problemas complejos en entornos cambiantes. Si bien la teoría define al PO como quien “maximiza el valor del producto”, mi trayectoria de 15 años dentro del Banco me lleva a una definición más pragmática: el PO es quien garantiza que cada hora de desarrollo se traduzca en soluciones reales para el cliente y en resultados concretos para el negocio, siempre alineado a los pilares del Plan Estratégico.
 
 2. EL ROL DEL PO EN LA CÉLULA BIT: LIDERAZGO Y VISIÓN
 Entiendo que el PO de BIT debe tener la capacidad de abrir el juego y marcar el rumbo del canal. Mi gestión se enfocará en:
-
-- Liderazgo de expertos:
-  Coordinar un equipo de alta especialización (Data, UX Writing, Devs de APIs, Scrum Master) bajo una cultura facilitadora. Mi rol es eliminar bloqueos y crear contexto para que el equipo innove, mientras gestiono la visión del producto ante los stakeholders.
-
-- Articulación de necesidades:
-  Escuchar activamente a las áreas de negocio para identificar qué funciones aportan más valor. Mi perfil permite dialogar fluidamente con tecnología, comprendiendo trade-offs entre alcance, tiempo y calidad.
+• Liderazgo de Expertos: Coordinar un equipo de alta especialización (Data, UX Writing, Devs de APIs, Scrum Master) bajo una cultura facilitadora. Mi rol es eliminar bloqueos para que el equipo innove, mientras gestiono la visión del producto ante los stakeholders.
+• Articulación de Necesidades: Escuchar activamente a las áreas de negocio para identificar qué funciones aportan más valor. Mi perfil permite dialogar fluidamente con tecnología, comprendiendo los trade-offs entre alcance, tiempo y calidad.
 
 3. METODOLOGÍA DE TRABAJO COMO PRODUCT OWNER
-3.1. Visión de Producto y Medición de Resultados (OKRs)
-Mi prioridad será asegurar que la Célula persiga Objetivos de Producto claros. Trabajo bajo la definición de OKRs junto al Líder de la Célula, asegurando que mi gestión contribuya directamente a los indicadores de negocio.
+A) Visión de Producto y Medición de Resultados (OKRs)
+Mi prioridad será asegurar que la Célula persiga Objetivos de Producto claros. Trabajo bajo la definición de OKRs junto al Líder de la Célula, asegurando que mi gestión contribuya directamente a los indicadores de negocio. Creo en la toma de decisiones basada en datos (Outcomes) como brújula para aprender y priorizar el backlog con criterio de negocio.
+B) El Backlog como el “Corazón” del Producto
+Entiendo al Product Backlog como un artefacto vivo que concentra decisiones y prioridades del producto. Asumo como responsabilidad central gestionarlo con autonomía, evaluando continuamente valor e impacto, y asegurando su total transparencia para que el equipo y los stakeholders comprendan no solo qué se construye, sino por qué.
 
-Creo en la toma de decisiones basada en datos (Outcomes) como brújula para aprender y priorizar el backlog con criterio de negocio: qué iniciativas generan impacto real, cuáles reducen fricción y cuáles escalan la transaccionalidad.
-
-3.2. El Backlog como el “Corazón” del Producto
-Entiendo al Product Backlog como un artefacto vivo que concentra decisiones y prioridades del producto. Asumo como responsabilidad central gestionarlo con autonomía:
-- Evaluando continuamente valor e impacto.
-- Asegurando transparencia total para que equipo y stakeholders comprendan no solo qué se construye, sino por qué.
-- Priorizando con foco en outcomes (no solo outputs), y cuidando el “time to market” sin comprometer calidad.
-
-3.3. Adaptabilidad: de la Obra al MVP
-Transpongo la lógica de la gestión de obra al mundo digital: mantengo siempre la visión del “edificio completo” (Product Goal), pero entiendo que el desarrollo digital permite validar e iterar en ciclos cortos.
-
-Mi foco será:
-- Identificar el MVP (Producto Mínimo Viable) para validar hipótesis tempranamente.
-- Evitar costos hundidos y desarrollo innecesario.
-- Escalar desde aprendizajes medibles y repetibles.
+C) Adaptabilidad: De la Obra al MVP
+Transpongo la lógica de la gestión de obra al mundo digital: mantengo siempre la visión del “edificio completo” (Product Goal), pero entiendo que el desarrollo digital permite validar e iterar en ciclos cortos. Mi foco será identificar el MVP (Producto Mínimo Viable) para validar hipótesis tempranamente y evitar costos hundidos.
 
 4. VISIÓN ESTRATÉGICA: DE LO GUIADO A LO GENERATIVO
-El salto cualitativo de BIT consiste en evolucionar de un sistema de opciones rígidas a una verdadera IA conversacional:
-
-- IA Generativa y NLU:
-  Implementar modelos de entendimiento de lenguaje natural para que el cliente no tenga que “elegir opciones”, sino expresar su problema libremente.
-
-- Eficiencia y derivación:
-  Optimizar el bot para que resuelva de punta a punta, utilizando IA para generar resoluciones en formato “backoffice”, reduciendo la dependencia de atención humana en vivo y mejorando tiempos de respuesta.
-
-- BIT transaccional:
-  Evolucionar de lo informativo a lo ejecutable, integrando APIs para realizar operaciones directas desde el chat (consultas, gestiones, blanqueos y trámites).
+El salto cualitativo de BIT consiste en evolucionar de un sistema de opciones rígidas a una verdadera IA Conversacional:
+• IA Generativa y NLU: Implementar modelos de entendimiento de lenguaje natural para que el cliente no tenga que elegir opciones, sino expresar su problema libremente.
+• Eficiencia y Derivación: Optimizar el bot para que resuelva de punta a punta, utilizando la IA para generar resoluciones en formato backoffice, reduciendo la dependencia de atención humana en vivo.
+• BIT Transaccional: Evolucionar de lo informativo a lo ejecutable, integrando APIs para realizar operaciones directas (consultas, gestiones, blanqueos) desde el chat.
 
 5. OBJETIVOS ESTRATÉGICOS (OKRs) Y PLAN DE ACCIÓN
 OKR 1: Masificar el uso de BIT como canal de preferencia.
-- KR 1 (existente): Alcanzar 1.000.000 de MAUs (Usuarios Activos Mensuales).
-  Resolución:
-  - Integración nativa de BIT en el flujo de Homebanking y App.
-  - Proactividad basada en eventos (notificaciones inteligentes de vencimientos, oportunidades u ofertas relevantes).
+• KR 1 (Existente): Alcanzar 1.000.000 de MAUs (Usuarios Activos Mensuales).
+  o Resolución: Integración nativa de BIT en el flujo de Homebanking y App. Implementar proactividad basada en eventos (notificaciones inteligentes de vencimientos u ofertas).
+OKR 2: Excelencia en la Experiencia del Cliente.
+• KR 2 (Existente): Elevar el CSAT del 81% al 85%.
+  o Resolución: Implementar "Memoria de Contexto" para evitar repeticiones. Foco en la resolución en el primer contacto para reducir la frustración del usuario.
+OKR 3 (Propuesta): Valor de Negocio y Transaccionalidad.
+• KR 3: Incrementar el % de gestiones finalizadas con éxito dentro de BIT.
+  o Resolución: Conexión directa con APIs core para permitir autogestión total. Proyectar la escalabilidad para BIT Empresas a futuro.
 
-OKR 2: Excelencia en la experiencia del cliente.
-- KR 2 (existente): Elevar el CSAT del 81% al 85%.
-  Resolución:
-  - Implementar “memoria de contexto” para evitar repeticiones.
-  - Foco en resolución en el primer contacto (First Contact Resolution) para reducir frustración.
-
-OKR 3 (propuesta): Valor de negocio y transaccionalidad.
-- KR 3: Incrementar el porcentaje de gestiones finalizadas con éxito dentro de BIT.
-  Resolución:
-  - Conexión directa con APIs core para permitir autogestión total.
-  - Diseñar escalabilidad para evolucionar hacia BIT Empresas como línea futura.
-
-6. INTEGRACIÓN: BIT COMO PUNTO DE CONVERGENCIA DEL CLIENTE
-BIT no es un producto aislado; es el “Hall Central” de la experiencia digital. Así como en un edificio el hall conecta y distribuye a los usuarios hacia sus destinos, BIT es el punto de unión que potencia los viajes de las Tribus:
-
-6.1. Incorporación del cliente
-- BIT acompaña al usuario en el alta digital.
-- Interviene proactivamente para reducir abandono y facilitar la bienvenida.
-
-6.2. Financiación
-- Actúa como calificador previo y asesor de productos crediticios.
-- Simplifica requisitos y deriva oportunidades listas para su cierre.
-
-6.3. Pagos y transferencias
-- Acelera operaciones críticas.
-- Habilita autogestiones rápidas (bloqueos, consultas) mediante APIs de seguridad.
-
-6.4. Ahorros e inversión
-- Traduce oferta financiera compleja (Fondos, MEP) a lenguaje simple.
-- Facilita simulaciones y mejora la toma de decisiones del cliente.
+6. INTEGRACIÓN: BIT COMO EL PUNTO DE CONVERGENCIA DEL CLIENTE
+BIT no es un producto aislado; es el "Hall Central" de la experiencia digital. Así como en un edificio el hall conecta y distribuye a los usuarios hacia sus destinos, BIT es el punto de unión que potencia los viajes de las 4 Tribus:
+1. Incorporación del Cliente: BIT acompaña al usuario en el alta digital, interviniendo proactivamente para reducir el abandono y facilitar la bienvenida.
+2. Financiación: Actúa como calificador previo y asesor de productos crediticios, simplificando los requisitos y derivando oportunidades listas para su cierre.
+3. Pagos y Transferencias: Brinda agilidad en operaciones críticas, permitiendo autogestiones rápidas (bloqueos, consultas) mediante APIs de seguridad.
+4. Ahorros e Inversión: Traduce la oferta financiera compleja (Fondos, MEP) a un lenguaje simple, facilitando simulaciones y la toma de decisiones del cliente.
 
 7. BENCHMARKING: ANÁLISIS COMPARATIVO DE ASISTENTES
-Tabla comparativa (texto):
-
-- Entidad: Banco Ciudad
-  Nombre: BIT
-  Relación Marca: Identidad propia
-  Plataformas: WhatsApp / Web
-  Funciones / Alcance: Informativo y gestión inicial. Foco en evolución a IA generativa.
-
-- Entidad: Galicia
-  Nombre: Gala
-  Relación Marca: Personificación
-  Plataformas: WhatsApp / Web / App
-  Funciones / Alcance: Alta fluidez y empatía. Muy enfocada en experiencia de usuario.
-
-- Entidad: BBVA
-  Nombre: Blue
-  Relación Marca: Color de marca
-  Plataformas: App / Web
-  Funciones / Alcance: Muy resolutivo. Excelente integración con saldos y movimientos.
-
-- Entidad: Santander
-  Nombre: Santi
-  Relación Marca: Personificación
-  Plataformas: WhatsApp / App
-  Funciones / Alcance: Foco en seguridad y validación para operaciones.
-
-- Entidad: Banca Pública
-  Nombre: BIP / BNA+
-  Relación Marca: Siglas canal
-  Plataformas: WhatsApp / App
-  Funciones / Alcance: Masivos, pero con flujos rígidos y guiados. IA limitada.
+Entidad | Nombre | Relación Marca | Plataformas | Funciones / Alcance
+Bco. Ciudad | BIT | Identidad propia | WhatsApp / Web | Informativo y gestión inicial. Foco en evolución a IA Generativa.
+Galicia | Gala | Personificación | WA / Web / App | Alta fluidez y empatía. Muy enfocada en experiencia de usuario.
+BBVA | Blue | Color marca | App / Web | Muy resolutivo. Excelente integración con saldos y movimientos.
+Santander | Santi | Personificación | WA / App | Foco en seguridad y validación para operaciones.
+Bca. Pública | BIP/BNA+ | Siglas canal | WA / App | Masivos, pero con flujos rígidos y guiados. IA limitada.
 
 8. PERFIL TÉCNICO Y GESTIÓN DE LA INCERTIDUMBRE
 Desde que finalicé mi carrera como arquitecto, he desarrollado mis conocimientos tecnológicos de manera ininterrumpida y autodidacta:
-
-- Vanguardia tecnológica:
-  Formación constante en Backend (Java, SQL), hardware de alto rendimiento y herramientas de IA generativa, buscando siempre su implementación en proyectos reales.
-
-- Mindset de PO:
-  Capacidad para gestionar incertidumbre y dialogar con expertos técnicos para liderar el desarrollo de un producto complejo como BIT.
-
-- Experiencia interna:
-  15 años de trayectoria transversal que me permiten entender el impacto del canal en toda la organización.
+• Vanguardia Tecnológica: Formación constante en Backend (Java, SQL), Hardware de alto rendimiento y herramientas de IA Generativa, buscando siempre su implementación en proyectos reales.
+• Mindset de PO: Mi capacidad para gestionar la incertidumbre y dialogar con expertos técnicos me permite liderar el desarrollo de un producto complejo como BIT.
+• Experiencia Interna: 15 años de trayectoria transversal que me permiten entender el impacto del canal en toda la organización.
 
 9. CIERRE: POR QUÉ ESTE ROL Y POR QUÉ AHORA
-Mi postulación responde a una búsqueda consciente de evolución profesional. Me motiva el desafío de aplicar mis capacidades de gestión en la infraestructura digital del Banco Ciudad.
-
-Cuento con:
-- curiosidad constante,
-- formación continua,
-- orientación a resultados,
-para escalar a BIT al nivel de excelencia que el negocio demanda.
+Mi postulación responde a una búsqueda consciente de evolución profesional. Me motiva el desafío de aplicar mis capacidades de gestión en la infraestructura digital del Banco Ciudad. Cuento con la curiosidad constante, la formación continua y la orientación a resultados necesaria para escalar a BIT al nivel de excelencia que el negocio demanda.
 
 10. COMPROMISO E INNOVACIÓN: PROTOTIPO INTERACTIVO
 Como muestra del profundo interés que tengo por este puesto y de mi vocación por explorar las posibilidades de la tecnología, he desarrollado un prototipo de chatbot interactivo específicamente para acompañar esta propuesta.
+Este desarrollo es una demostración de mis capacidades actuales, de mi potencial y del compromiso que asumo con este nuevo desafío. A través de este código QR, podrán interactuar con una IA que:
+• Sintetiza los puntos clave de este plan de trabajo de forma dinámica.
+• Refleja mi intención de sumar valor al CoE de IA desde un entendimiento real de las herramientas.
+• Evidencia mi proactividad y mi interés genuino en transformar las capacidades del canal BIT.
+Es mi forma de mostrarles la seriedad con la que encaro esta transición y el potencial que deseo aportar al equipo.
 
-Este desarrollo demuestra mis capacidades actuales, mi potencial y el compromiso que asumo con este nuevo desafío. A través de este código QR, podrán interactuar con una IA que:
-- sintetiza los puntos clave del plan de forma dinámica,
-- refleja mi intención de sumar valor al CoE de IA desde un entendimiento real de las herramientas,
-- evidencia mi proactividad e interés genuino en transformar las capacidades del canal BIT.
+DOCUMENTO 2: PERFIL PROFESIONAL Y TRAYECTORIA
+PERFIL PROFESIONAL
+Arquitecto con 15 años de trayectoria en el Banco Ciudad, especializado en la gestión de proyectos de alta complejidad y la articulación entre visión estratégica y ejecución técnica. Poseo un perfil híbrido que integra la estructura mental de la arquitectura con un dominio avanzado de Inteligencia Artificial y fundamentos de Programación Fullstack. Mi valor diferencial reside en la capacidad de liderar productos digitales con la precisión de una obra: gestionando recursos, coordinando equipos interdisciplinarios y garantizando la excelencia en la experiencia del usuario (CX). Actualmente, enfocado en liderar la evolución del canal BIT hacia modelos de IA Generativa, respaldado por una formación constante en agilidad y tecnología.
 
-Es mi forma de mostrar la seriedad con la que encaro esta transición y el potencial que deseo aportar al equipo.
+EXPERIENCIA EN BANCO CIUDAD (2011 – Presente)
+Coordinación de Mantenimiento – Equipo de Termomecánica (2023 – Presente)
+• Optimización basada en Datos: Modernización de procesos internos mediante el análisis de datos operativos y la implementación de automatizaciones que optimizan los tiempos de respuesta.
+• Gestión de Infraestructura Crítica: Supervisión técnica con foco en la eficiencia energética, aplicando criterios de escalabilidad y mantenimiento preventivo, fundamentales para la estabilidad operativa de un CoE de IA.
+Coordinación de Proyectos – Arquitectura (2015 – 2023)
+• Innovación y Experiencia de Cliente (LabCiudad 2017): Participación estratégica en las Células de Innovación. Colaboré con el equipo ganador del proyecto "Sucursal Digital", materializando requerimientos tecnológicos y de negocio en una infraestructura física de vanguardia, dando soporte arquitectónico a nuevos modelos de atención.
+• Transformación Cultural: Colaboración activa en el proyecto "Nueva Cultura de Trabajo", diseñando ecosistemas físicos que facilitan la agilidad y el trabajo colaborativo, pilares de las nuevas Tribus.
+• Product Thinking aplicado: Dirección integral de obras de alta visibilidad (Boutiques de Crédito, Edificio Maipú, Club Banco Ciudad), gestionando presupuestos, planificación y coordinación de múltiples rubros técnicos.
+Atención al Cliente – Call Center (2011 – 2015)
+• Comprensión del Usuario (CX): Conocimiento profundo de las necesidades y "puntos de dolor" del cliente masivo. Esta base me permite hoy diseñar flujos conversacionales en BIT que son empáticos y resolutivos.
 
-11. DOCUMENTO 2: PERFIL PROFESIONAL Y TRAYECTORIA
-11.1. Perfil profesional
-Arquitecto con 15 años de trayectoria en el Banco Ciudad, especializado en la gestión de proyectos de alta complejidad y la articulación entre visión estratégica y ejecución técnica.
+FORMACIÓN ACADÉMICA Y ESPECIALIZACIÓN
+• Arquitecto – Universidad de Buenos Aires (UBA).
+• Posgrado en Arquitectura y Tecnología – Universidad Torcuato Di Tella.
+• Automatización de Casas y Edificios – Universidad Tecnológica Nacional (UTN).
+• Tecnología e Iluminación para Espectáculos – Centro Argentino de la Luz.
+• Mastering Product Ownership – Alison (Certificado CPD, 2025).
+• Agilidad y Scrum / Estimaciones Ágiles – Academia Kleer (2025).
+• Programación Fullstack – Argentina Programa 4.0 / Egg (Trayecto en curso: Lógica, POO, Java, MySQL).
+• IA Generativa: Especialización en Prompt Engineering, RAG y orquestación de agentes inteligentes.
 
-Poseo un perfil híbrido que integra la estructura mental de la arquitectura con un dominio avanzado de Inteligencia Artificial y fundamentos de Programación Fullstack.
+COMPETENCIAS TÉCNICAS E INNOVACIÓN
+• Ecosistema de Software: Dominio experto de herramientas de diseño y gestión compleja: AutoCAD, Revit (BIM), SketchUp, 3ds Max, V-Ray, Lumion, D5 Render. Manejo avanzado de Adobe Creative Suite (Photoshop, Illustrator, InDesign) y herramientas de productividad (MS Project, Office, Google Suite).
+• IA Mindset: Dominio de LLMs (ChatGPT, Gemini, Copilot) para automatización de flujos y análisis técnico. Uso de herramientas de visualización generativa (Midjourney, Stable Diffusion).
+• Tecnologías Emergentes: Conocimientos en Escaneo LiDAR, Impresión 3D y modelado paramétrico. Experiencia en configuración de hardware de alto rendimiento.
+• Adaptabilidad y Aprendizaje: Alta capacidad de autodidactismo y rápida adopción de nuevos sistemas de software. Mi trayectoria demuestra una transición exitosa entre diferentes dominios tecnológicos, manteniendo siempre el foco en la mejora continua.
 
-Mi valor diferencial reside en la capacidad de liderar productos digitales con la precisión de una obra:
-- gestionando recursos,
-- coordinando equipos interdisciplinarios,
-- garantizando excelencia en experiencia del usuario (CX).
+IDIOMAS
+• Inglés: Nivel Intermedio-Alto (First Certificate in English - FCE, University of Cambridge). Capacidad para liderar reuniones y consumir documentación técnica global.
 
-Actualmente, estoy enfocado en liderar la evolución del canal BIT hacia modelos de IA generativa, respaldado por formación constante en agilidad y tecnología.
-
-11.2. Experiencia en Banco Ciudad (2011 – Presente)
-11.2.1. Coordinación de Mantenimiento – Equipo de Termomecánica (2023 – Presente)
-- Optimización basada en datos:
-  Modernización de procesos internos mediante análisis de datos operativos e implementación de automatizaciones que optimizan tiempos de respuesta.
-
-- Gestión de infraestructura crítica:
-  Supervisión técnica con foco en eficiencia energética, aplicando criterios de escalabilidad y mantenimiento preventivo, fundamentales para la estabilidad operativa de un CoE de IA.
-
-11.2.2. Coordinación de Proyectos – Arquitectura (2015 – 2023)
-- Innovación y experiencia de cliente (LabCiudad 2017):
-  Participación estratégica en Células de Innovación. Colaboré con el equipo ganador del proyecto “Sucursal Digital”, materializando requerimientos tecnológicos y de negocio en infraestructura física de vanguardia, dando soporte arquitectónico a nuevos modelos de atención.
-
-- Transformación cultural:
-  Participación activa en “Nueva Cultura de Trabajo”, diseñando ecosistemas físicos que facilitan agilidad y trabajo colaborativo, pilares de las nuevas Tribus.
-
-- Product Thinking aplicado:
-  Dirección integral de obras de alta visibilidad (Boutiques de Crédito, Edificio Maipú, Club Banco Ciudad), gestionando presupuestos, planificación y coordinación de múltiples rubros técnicos.
-
-11.2.3. Atención al Cliente – Call Center (2011 – 2015)
-- Comprensión del usuario (CX):
-  Conocimiento profundo de necesidades y “puntos de dolor” del cliente masivo. Esta base me permite diseñar flujos conversacionales en BIT que sean empáticos y resolutivos.
-
-11.3. Formación académica y especialización
-- Arquitecto – Universidad de Buenos Aires (UBA).
-- Posgrado en Arquitectura y Tecnología – Universidad Torcuato Di Tella.
-- Automatización de Casas y Edificios – Universidad Tecnológica Nacional (UTN).
-- Tecnología e Iluminación para Espectáculos – Centro Argentino de la Luz.
-- Mastering Product Ownership – Alison (Certificado CPD, 2025).
-- Agilidad y Scrum / Estimaciones Ágiles – Academia Kleer (2025).
-- Programación Fullstack – Argentina Programa 4.0 / Egg (trayecto en curso: lógica, POO, Java, MySQL).
-- IA Generativa: especialización en Prompt Engineering, RAG y orquestación de agentes inteligentes.
-
-11.4. Competencias técnicas e innovación
-- Ecosistema de software:
-  AutoCAD, Revit (BIM), SketchUp, 3ds Max, V-Ray, Lumion, D5 Render; Adobe Creative Suite (Photoshop, Illustrator, InDesign); MS Project, Office, Google Suite.
-
-- IA mindset:
-  Dominio de LLMs (ChatGPT, Gemini, Copilot) para automatización de flujos y análisis. Uso de herramientas de visualización generativa (Midjourney, Stable Diffusion).
-
-- Tecnologías emergentes:
-  Conocimientos en escaneo LiDAR, impresión 3D y modelado paramétrico. Experiencia en configuración de hardware de alto rendimiento.
-
-- Adaptabilidad y aprendizaje:
-  Alta capacidad de autodidactismo y rápida adopción de nuevos sistemas. Transición exitosa entre dominios tecnológicos manteniendo foco en mejora continua.
-
-11.5. Idiomas
-- Inglés: Intermedio-Alto (First Certificate in English - FCE, University of Cambridge). Capacidad para liderar reuniones y consumir documentación técnica global.
 
