@@ -4,6 +4,7 @@ const path = require('path');
 const { URL } = require('url');
 const { getPlan, setPlan } = require('./lib/plan-store');
 const { buildSystemPrompt } = require('./lib/prompt');
+const { readInteractions, addInteraction } = require('./lib/interactions-store');
 
 const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -78,6 +79,15 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 200, { ok: true });
     }
 
+    if (req.method === 'GET' && pathname === '/api/interactions') {
+      if (ADMIN_TOKEN && req.headers['x-admin-token'] !== ADMIN_TOKEN) {
+        return sendJson(res, 401, { error: 'Token de administración inválido.' });
+      }
+
+      const items = await readInteractions();
+      return sendJson(res, 200, { items: items.reverse() });
+    }
+
     if (req.method === 'POST' && pathname === '/api/chat') {
       if (!OPENAI_API_KEY) {
         return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
@@ -87,6 +97,8 @@ const server = http.createServer(async (req, res) => {
       if (typeof body.message !== 'string' || !body.message.trim()) {
         return sendJson(res, 400, { error: 'Mensaje inválido.' });
       }
+
+      await addInteraction({ userName: body.userName, question: body.message.trim() });
 
       const plan = await getPlan();
       const systemPrompt = buildSystemPrompt({ userName: body.userName, plan });
@@ -125,3 +137,4 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`Servidor disponible en http://localhost:${PORT}`);
 });
+
