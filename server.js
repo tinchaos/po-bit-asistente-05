@@ -89,10 +89,6 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (req.method === 'POST' && pathname === '/api/chat') {
-      if (!OPENAI_API_KEY) {
-        return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
-      }
-
       const body = await parseBody(req);
       if (typeof body.message !== 'string' || !body.message.trim()) {
         return sendJson(res, 400, { error: 'Mensaje inválido.' });
@@ -102,6 +98,10 @@ const server = http.createServer(async (req, res) => {
         await addInteraction({ userName: body.userName, question: body.message.trim() });
       } catch (_error) {
         // logging no bloqueante
+      }
+
+      if (!OPENAI_API_KEY) {
+        return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
       }
 
       const plan = await getPlan();
