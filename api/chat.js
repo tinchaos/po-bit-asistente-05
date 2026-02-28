@@ -1,9 +1,15 @@
-const { getPlan } = require('../lib/plan-store');
+const planStore = require('../lib/plan-store');
 const { buildSystemPrompt } = require('../lib/prompt');
 const { addInteraction } = require('../lib/interactions-store');
 
 function sendJson(res, status, data) {
   res.status(status).json(data);
+}
+
+function resolveGetPlan() {
+  if (typeof planStore.getPlan === 'function') return planStore.getPlan;
+  if (planStore.default && typeof planStore.default.getPlan === 'function') return planStore.default.getPlan;
+  throw new Error('getPlan no disponible en plan-store');
 }
 
 module.exports = async function handler(req, res) {
@@ -32,6 +38,7 @@ module.exports = async function handler(req, res) {
       return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
     }
 
+    const getPlan = resolveGetPlan();
     const plan = await getPlan();
     const systemPrompt = buildSystemPrompt({ userName, plan });
 
