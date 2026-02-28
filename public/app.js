@@ -3,7 +3,8 @@ const formEl = document.getElementById('form');
 const inputEl = document.getElementById('message');
 
 let userName = '';
-
+const questionsAsked = [];
+let summarySent = false;
 
 function normalizeUserMessage(text) {
   const normalized = text.trim().toLowerCase();
@@ -11,6 +12,32 @@ function normalizeUserMessage(text) {
   if (normalized === '2') return 'Sugerime opciones concretas.';
   if (normalized === '3') return 'Tengo una duda puntual y quiero verla con vos.';
   return text;
+}
+
+function isFinishIntent(text) {
+  const normalized = text.trim().toLowerCase();
+  return ['no', 'nada más', 'nada mas', 'terminar', 'finalizar', 'eso es todo', 'listo, gracias'].includes(normalized);
+}
+
+async function sendConversationSummary(reason) {
+  if (summarySent || !questionsAsked.length) return;
+
+  summarySent = true;
+
+  try {
+    await fetch('/api/conversation-end', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userName,
+        reason,
+        questions: questionsAsked
+      }),
+      keepalive: true
+    });
+  } catch (_error) {
+    // no-op
+  }
 }
 
 function addMessage(text, sender = 'bot') {
@@ -65,7 +92,17 @@ formEl.addEventListener('submit', async (e) => {
   }
 
   const mappedText = normalizeUserMessage(text);
+  questionsAsked.push(mappedText);
+
   await sendToBot(mappedText);
+
+  if (isFinishIntent(text) || isFinishIntent(mappedText)) {
+    await sendConversationSummary('finished');
+  }
+});
+
+window.addEventListener('pagehide', () => {
+  void sendConversationSummary('abandoned');
 });
 
 addMessage('¡Hola! Soy el asistente del plan de trabajo de Martín para Product Owner de BIT. 👋');
