@@ -1,45 +1,44 @@
-const rowsEl = document.getElementById('rows');
-const loadBtn = document.getElementById('loadBtn');
-const adminTokenEl = document.getElementById('adminToken');
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registros de consultas | BIT Chat Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="phone logs-panel">
+      <header class="topbar">
+        <div class="avatar">RG</div>
+        <div>
+          <h1>Registros de consultas</h1>
+          <p>Nombre + pregunta + fecha · <a href="/" style="color:#25d366">Volver al chat</a></p>
+        </div>
+      </header>
 
-function renderRows(items) {
-  rowsEl.innerHTML = '';
+      <div class="logs-controls">
+        <input id="adminToken" placeholder="ADMIN_TOKEN (si aplica)" autocomplete="off" />
+        <button id="loadBtn">Cargar registros</button>
+      </div>
 
-  if (!items.length) {
-    const tr = document.createElement('tr');
-    tr.innerHTML = '<td colspan="3">No hay registros todavía.</td>';
-    rowsEl.appendChild(tr);
-    return;
-  }
-
-  items.forEach((item) => {
-    const tr = document.createElement('tr');
-    const date = new Date(item.createdAt).toLocaleString('es-AR');
-    tr.innerHTML = `
-      <td>${date}</td>
-      <td>${item.userName || 'visitante'}</td>
-      <td>${item.question}</td>
-    `;
-    rowsEl.appendChild(tr);
-  });
-}
-
-async function loadInteractions() {
-  const headers = {};
-  if (adminTokenEl.value.trim()) {
-    headers['x-admin-token'] = adminTokenEl.value.trim();
-  }
-
-  const res = await fetch('/api/interactions', { headers });
-  const data = await res.json();
-
-  if (!res.ok) {
-    rowsEl.innerHTML = `<tr><td colspan="3">Error: ${data.error || 'No se pudo cargar.'}</td></tr>`;
-    return;
-  }
-
-  renderRows(data.items || []);
-}
-
-loadBtn.addEventListener('click', loadInteractions);
-loadInteractions();
+      <div class="logs-table-wrap">
+        <table class="logs-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Nombre</th>
+              <th>Pregunta</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="/registros.js"></script>
+</body>
+</html>
