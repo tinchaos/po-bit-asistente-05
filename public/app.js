@@ -1,109 +1,87 @@
-const chatEl = document.getElementById('chat');
-const formEl = document.getElementById('form');
-const inputEl = document.getElementById('message');
+const messagesContainer = document.getElementById('messages');
+const input = document.getElementById('input');
+const sendBtn = document.getElementById('send');
 
 let userName = '';
-const questionsAsked = [];
-let summarySent = false;
+let conversationHistory = [];
+let choosingInitialMenu = false;
+
+function addMessage(text, role) {
+  const msg = document.createElement('div');
+  msg.className = `message ${role}`;
+  msg.innerText = text;
+  messagesContainer.appendChild(msg);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+  // Guardamos historial estructurado
+  conversationHistory.push({ role, content: text });
+}
 
 function normalizeUserMessage(text) {
   const normalized = text.trim().toLowerCase();
-  if (normalized === '1') return 'Quiero ver el plan completo.';
-  if (normalized === '2') return 'Sugerime opciones concretas.';
-  if (normalized === '3') return 'Tengo una duda puntual y quiero verla con vos.';
+
+  // Solo mapear 1/2/3 cuando estamos en el menú inicial
+  if (choosingInitialMenu) {
+    if (normalized === '1') return 'Quiero ver el plan completo.';
+    if (normalized === '2') return 'Sugerime opciones concretas.';
+    if (normalized === '3') return 'Tengo una duda puntual y quiero verla con vos.';
+  }
+
   return text;
 }
 
-function isFinishIntent(text) {
-  const normalized = text.trim().toLowerCase();
-  return ['no', 'nada más', 'nada mas', 'terminar', 'finalizar', 'eso es todo', 'listo, gracias'].includes(normalized);
-}
-
-async function sendConversationSummary(reason) {
-  if (summarySent || !questionsAsked.length) return;
-
-  summarySent = true;
-
-  try {
-    await fetch('/api/conversation-end', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        userName,
-        reason,
-        questions: questionsAsked
-      }),
-      keepalive: true
-    });
-  } catch (_error) {
-    // no-op
-  }
-}
-
-function addMessage(text, sender = 'bot') {
-  const div = document.createElement('div');
-  div.className = `msg ${sender}`;
-  div.textContent = text;
-  chatEl.appendChild(div);
-  chatEl.scrollTop = chatEl.scrollHeight;
-}
-
 async function sendToBot(message) {
-  addMessage(message, 'user');
-  const loading = document.createElement('div');
-  loading.className = 'msg bot';
-  loading.textContent = 'Escribiendo...';
-  chatEl.appendChild(loading);
-
   try {
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message, userName })
+      body: JSON.stringify({
+        message,
+        history: conversationHistory.slice(-10) // 🔥 enviamos últimas 10 interacciones
+      })
     });
 
     const data = await response.json();
-    loading.remove();
-    addMessage(data.reply || data.error || 'No pude responder en este momento.');
-  } catch (_error) {
-    loading.remove();
-    addMessage('Hubo un problema de conexión con el asistente.');
+    addMessage(data.reply, 'bot');
+  } catch (err) {
+    addMessage('Error al conectar con el asistente.', 'bot');
   }
 }
 
-formEl.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const text = inputEl.value.trim();
+async function handleSend() {
+  const text = input.value.trim();
   if (!text) return;
 
-  inputEl.value = '';
+  input.value = '';
 
+  // Primer mensaje = nombre
   if (!userName) {
     userName = text;
     addMessage(text, 'user');
-    addMessage(
-      `¡Mucho gusto, ${userName}! 👋\n` +
-      '¿Cómo preferís avanzar?\n' +
-      '1) Ver el plan completo (te muestro el índice y elegís qué sección ver).\n' +
-      '2) Que te sugiera opciones concretas.\n' +
-      '3) Contarme una duda puntual y lo vemos juntos.'
-    );
+
+    const welcome =
+`¡Mucho gusto, ${userName}! 👋
+¿Cómo preferís avanzar?
+1) Ver el plan completo (te muestro el índice y elegís qué sección ver).
+2) Que te sugiera opciones concretas.
+3) Contarme una duda puntual y lo vemos juntos.`;
+
+    addMessage(welcome, 'bot');
+    choosingInitialMenu = true;
     return;
   }
 
+  addMessage(text, 'user');
+
   const mappedText = normalizeUserMessage(text);
-  questionsAsked.push(mappedText);
+
+  if (choosingInitialMenu) choosingInitialMenu = false;
 
   await sendToBot(mappedText);
+}
 
-  if (isFinishIntent(text) || isFinishIntent(mappedText)) {
-    await sendConversationSummary('finished');
-  }
+sendBtn.addEventListener('click', handleSend);
+
+input.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') handleSend();
 });
-
-window.addEventListener('pagehide', () => {
-  void sendConversationSummary('abandoned');
-});
-
-addMessage('¡Hola! Soy el asistente del plan de trabajo de Martín para Product Owner de BIT. 👋');
-addMessage('Primero, ¿cómo te llamás?');
