@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs/promises');
 const path = require('path');
 const { URL } = require('url');
-const { getPlan, setPlan } = require('./lib/plan-store');
+const planStore = require('./lib/plan-store');
 const { buildSystemPrompt } = require('./lib/prompt');
 const { readInteractions, addInteraction } = require('./lib/interactions-store');
 const { sendConversationSummaryEmail } = require('./lib/mailer');
@@ -23,6 +23,23 @@ const MIME_TYPES = {
 function sendJson(res, status, data) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify(data));
+}
+
+function resolvePlanStore() {
+  const getPlan = typeof planStore.getPlan === 'function'
+    ? planStore.getPlan
+    : planStore.default && typeof planStore.default.getPlan === 'function'
+      ? planStore.default.getPlan
+      : null;
+
+  const setPlan = typeof planStore.setPlan === 'function'
+    ? planStore.setPlan
+    : planStore.default && typeof planStore.default.setPlan === 'function'
+      ? planStore.default.setPlan
+      : null;
+
+  if (!getPlan || !setPlan) throw new Error('plan-store inválido');
+  return { getPlan, setPlan };
 }
 
 async function parseBody(req) {
@@ -62,6 +79,7 @@ const server = http.createServer(async (req, res) => {
 
   try {
     if (req.method === 'GET' && pathname === '/api/plan') {
+      const { getPlan } = resolvePlanStore();
       const plan = await getPlan();
       return sendJson(res, 200, { plan });
     }
@@ -76,6 +94,7 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 400, { error: 'El texto del plan es obligatorio.' });
       }
 
+      const { setPlan } = resolvePlanStore();
       await setPlan(body.plan.trim());
       return sendJson(res, 200, { ok: true });
     }
@@ -119,6 +138,7 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
       }
 
+      const { getPlan } = resolvePlanStore();
       const plan = await getPlan();
       const systemPrompt = buildSystemPrompt({ userName: body.userName, plan });
 
@@ -156,3 +176,4 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`Servidor disponible en http://localhost:${PORT}`);
 });
+
