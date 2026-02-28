@@ -5,6 +5,7 @@ const { URL } = require('url');
 const { getPlan, setPlan } = require('./lib/plan-store');
 const { buildSystemPrompt } = require('./lib/prompt');
 const { readInteractions, addInteraction } = require('./lib/interactions-store');
+const { sendConversationSummaryEmail } = require('./lib/mailer');
 
 const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -86,6 +87,20 @@ const server = http.createServer(async (req, res) => {
 
       const items = await readInteractions();
       return sendJson(res, 200, { items: items.reverse() });
+    }
+
+
+    if (req.method === 'POST' && pathname === '/api/conversation-end') {
+      const body = await parseBody(req);
+      const cleanQuestions = Array.isArray(body.questions) ? body.questions.slice(0, 30) : [];
+
+      const result = await sendConversationSummaryEmail({
+        userName: body.userName,
+        reason: body.reason === 'finished' ? 'finished' : 'abandoned',
+        questions: cleanQuestions
+      });
+
+      return sendJson(res, 200, { ok: true, ...result });
     }
 
     if (req.method === 'POST' && pathname === '/api/chat') {
