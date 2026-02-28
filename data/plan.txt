@@ -14,8 +14,6 @@ Mi prioridad será asegurar que la Célula BIT trabaje con objetivos de producto
 B) El Backlog como el Corazón del Producto
 Entiendo al Product Backlog como un artefacto vivo de toma de decisiones, donde convergen negocio, tecnología y experiencia de usuario. Asumo la responsabilidad plena de priorizarlo, evaluando impacto, valor, esfuerzo y riesgo, asegurando total transparencia para el equipo y los stakeholders: no solo qué se construye, sino por qué y para qué.
 
-Figura 1: Matriz de Priorización para la toma de decisiones estratégicas
-
 C) Adaptabilidad: del Plan Maestro al MVP Validable
 Transpongo la lógica de la obra arquitectónica al producto digital: mantengo la visión del “edificio completo” (Product Goal), pero trabajo con entregas incrementales y validables. El foco está en identificar MVPs que permitan validar hipótesis temprano, minimizar costos hundidos y aprender rápidamente antes de escalar.
 
@@ -139,4 +137,5 @@ IDIOMAS
 
 11. CIERRE
 Mi postulación une el conocimiento profundo del Banco con una actualización tecnológica constante. Estoy listo para aplicar mi capacidad de articulación en el desafío de escalar a BIT al nivel de excelencia que el negocio demanda.
+
 
