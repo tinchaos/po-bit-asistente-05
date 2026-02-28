@@ -1,71 +1,47 @@
-const planStore = require('../lib/plan-store');
-const { buildSystemPrompt } = require('../lib/prompt');
-const { addInteraction } = require('../lib/interactions-store');
+const { getPlan } = require('../lib/plan-store');
+const OpenAI = require('openai');
 
-function sendJson(res, status, data) {
-  res.status(status).json(data);
-}
-
-function resolveGetPlan() {
-  if (typeof planStore.getPlan === 'function') return planStore.getPlan;
-  if (planStore.default && typeof planStore.default.getPlan === 'function') return planStore.default.getPlan;
-  throw new Error('getPlan no disponible en plan-store');
-}
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 
 module.exports = async function handler(req, res) {
   try {
-    if (req.method !== 'POST') {
-      return sendJson(res, 405, { error: 'Método no permitido.' });
-    }
+    const { message, history = [] } = req.body;
 
-    const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-    const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-4o-mini';
-
-    const message = req.body?.message;
-    const userName = req.body?.userName;
-
-    if (typeof message !== 'string' || !message.trim()) {
-      return sendJson(res, 400, { error: 'Mensaje inválido.' });
-    }
-
-    try {
-      await addInteraction({ userName, question: message.trim() });
-    } catch (_error) {
-      // logging no bloqueante
-    }
-
-    if (!OPENAI_API_KEY) {
-      return sendJson(res, 500, { error: 'Falta configurar OPENAI_API_KEY.' });
-    }
-
-    const getPlan = resolveGetPlan();
     const plan = await getPlan();
-    const systemPrompt = buildSystemPrompt({ userName, plan });
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: OPENAI_MODEL,
-        temperature: 0.4,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: message }
-        ]
-      })
+    const systemPrompt = `
+Actúa como el asistente conversacional del plan de trabajo de Martín Urtasun para Product Owner de la Célula BIT.
+
+Reglas:
+- Si el usuario pide ver el plan completo, mostrale primero el índice numerado.
+- Si el usuario responde con un número, interpretalo como la sección correspondiente del índice actual.
+- No vuelvas automáticamente al menú inicial salvo que el usuario lo pida.
+- Sé claro, profesional y conversacional.
+- Usa el contenido del plan como fuente principal.
+
+PLAN:
+${plan}
+`;
+
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      ...history,
+      { role: 'user', content: message }
+    ];
+
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages,
+      temperature: 0.4
     });
 
-    if (!response.ok) {
-      return sendJson(res, 500, { error: `Error de OpenAI: ${await response.text()}` });
-    }
+    const reply = completion.choices[0].message.content;
 
-    const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content || 'No pude generar una respuesta.';
-    return sendJson(res, 200, { reply });
+    res.status(200).json({ reply });
   } catch (error) {
-    return sendJson(res, 500, { error: `Error interno: ${error.message}` });
+    console.error(error);
+    res.status(500).json({ reply: 'Error interno del servidor.' });
   }
 };
