@@ -62,3 +62,4 @@ module.exports = async function handler(req, res) {
     return sendJson(res, 500, { error: `Error interno: ${error.message}` });
   }
 };
+
