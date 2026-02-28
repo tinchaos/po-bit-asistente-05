@@ -6,6 +6,6 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "check": "node --check server.js && node --check public/app.js && node --check public/registros.js && node --check api/chat.js && node --check api/plan.js && node --check api/interactions.js && node --check lib/plan-store.js && node --check lib/prompt.js && node --check lib/interactions-store.js"
+    "check": "node --check server.js && node --check public/app.js && node --check public/registros.js && node --check api/chat.js && node --check api/plan.js && node --check api/interactions.js && node --check api/conversation-end.js && node --check lib/plan-store.js && node --check lib/prompt.js && node --check lib/interactions-store.js && node --check lib/mailer.js"
   }
 }
