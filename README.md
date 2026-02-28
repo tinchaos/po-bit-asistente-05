@@ -23,6 +23,9 @@ Abrir `http://localhost:3000` (chat principal).
 - `ADMIN_TOKEN` para proteger el guardado del plan
 - `PLAN_KV_KEY` (opcional, default: `bit_plan_text`)
 - `INTERACTIONS_KV_KEY` (opcional, default: `bit_interactions_log`)
+- `RESEND_API_KEY` (opcional, para enviar resumen por email al finalizar/abandonar conversación)
+- `NOTIFY_EMAIL_TO` (opcional, default: `tinchourtasun@icloud.com`)
+- `NOTIFY_EMAIL_FROM` (opcional, default: `BIT Chat <onboarding@resend.dev>`)
 
 ## Dónde se guarda el plan
 
@@ -81,4 +84,14 @@ La app puede guardar un registro de interacciones (nombre + pregunta + fecha).
 - **Estilo y sesgo de las respuestas del asistente (prompt)**: `lib/prompt.js`
 - **Guardado/lectura de registros**: `lib/interactions-store.js`
 - **Vista de tabla de registros**: `public/registros.html` y `public/registros.js`
+
+
+## Notificación por email de fin de conversación
+
+El chat puede enviar un email a `tinchourtasun@icloud.com` (o al valor de `NOTIFY_EMAIL_TO`) cuando la conversación:
+- se finaliza explícitamente (ej: usuario responde "terminar"), o
+- se abandona/cierra la pestaña (`pagehide`).
+
+El email incluye resumen de las preguntas del usuario durante esa sesión.
+
 
