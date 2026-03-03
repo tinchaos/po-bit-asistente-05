@@ -10,13 +10,17 @@ module.exports = async function handler(req, res) {
       return sendJson(res, 405, { error: 'Método no permitido.' });
     }
 
-    const { userName, reason, questions } = req.body || {};
+    const { userName, reason, questions, score } = req.body || {};
     const cleanQuestions = Array.isArray(questions) ? questions.slice(0, 30) : [];
+
+    const s = Number(score);
+    const cleanScore = Number.isInteger(s) && s >= 1 && s <= 5 ? s : null;
 
     const result = await sendConversationSummaryEmail({
       userName,
       reason: reason === 'finished' ? 'finished' : 'abandoned',
-      questions: cleanQuestions
+      questions: cleanQuestions,
+      score: cleanScore
     });
 
     return sendJson(res, 200, { ok: true, ...result });
