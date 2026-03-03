@@ -5,16 +5,16 @@ const inputEl = document.getElementById('message');
 let userName = '';
 let choosingInitialMenu = false;
 
-const conversationHistory = [];
+const conversationHistory = []; // { role: 'user'|'assistant', content: string }
 const questionsAsked = [];
 
 let summarySent = false;
 
-// ⭐ Puntaje
+// Puntaje 1-5
 let awaitingScore = false;
 let sessionScore = null;
 
-// ⏱ Inactividad (5 minutos)
+// Inactividad (5 minutos)
 const INACTIVITY_MS = 5 * 60 * 1000;
 let inactivityTimer = null;
 
@@ -22,20 +22,27 @@ const FINAL_MESSAGE =
   'Espero que te haya sido útil la herramienta, y que consideres a Martín como el principal candidato. ¡Que tengas un excelente día!';
 
 function resetInactivityTimer() {
+  if (summarySent) return;
+
   if (inactivityTimer) clearTimeout(inactivityTimer);
 
   inactivityTimer = setTimeout(async () => {
-    if (!summarySent) {
-      await sendConversationSummary('abandoned');
-      addMessage('La sesión se cerró automáticamente por inactividad.', 'bot');
-    }
+    if (summarySent) return;
+
+    // Si quedó esperando puntaje, lo cerramos igual por abandono
+    awaitingScore = false;
+
+    await sendConversationSummary('abandoned');
+    addMessage('La sesión se cerró automáticamente por inactividad.', 'bot');
   }, INACTIVITY_MS);
 }
 
 function pushHistory(role, content) {
   if (!content || typeof content !== 'string') return;
+
   conversationHistory.push({ role, content });
 
+  // limitamos tamaño
   if (conversationHistory.length > 40) {
     conversationHistory.splice(0, conversationHistory.length - 40);
   }
@@ -44,6 +51,7 @@ function pushHistory(role, content) {
 function normalizeUserMessage(text) {
   const normalized = text.trim().toLowerCase();
 
+  // Solo mapear 1/2/3 cuando estamos eligiendo el menú inicial
   if (choosingInitialMenu) {
     if (normalized === '1') return 'Quiero ver el plan completo.';
     if (normalized === '2') return 'Sugerime opciones concretas.';
@@ -62,16 +70,19 @@ function parseScore(text) {
   const raw = String(text || '').trim().toLowerCase();
   if (!raw) return null;
 
+  // número simple
   const n = Number(raw);
   if (Number.isInteger(n) && n >= 1 && n <= 5) return n;
 
+  // 4/5
   const frac = raw.match(/^(\d)\s*\/\s*5$/);
   if (frac) {
     const k = Number(frac[1]);
     if (k >= 1 && k <= 5) return k;
   }
 
-  const words = { uno:1, dos:2, tres:3, cuatro:4, cinco:5 };
+  // palabras
+  const words = { uno: 1, dos: 2, tres: 3, cuatro: 4, cinco: 5 };
   if (words[raw] != null) return words[raw];
 
   return null;
@@ -93,7 +104,9 @@ async function sendConversationSummary(reason) {
       }),
       keepalive: true
     });
-  } catch (_) {}
+  } catch (_err) {
+    // no-op: no queremos romper la UX
+  }
 }
 
 function addMessage(text, sender = 'bot') {
@@ -105,16 +118,19 @@ function addMessage(text, sender = 'bot') {
 
   if (sender === 'user') pushHistory('user', text);
   if (sender === 'bot') pushHistory('assistant', text);
+
+  // Cualquier interacción reinicia el timeout
+  resetInactivityTimer();
 }
 
 async function sendToBot(message) {
   addMessage(message, 'user');
-  resetInactivityTimer();
 
   const loading = document.createElement('div');
   loading.className = 'msg bot';
   loading.textContent = 'Escribiendo...';
   chatEl.appendChild(loading);
+  chatEl.scrollTop = chatEl.scrollHeight;
 
   try {
     const response = await fetch('/api/chat', {
@@ -130,11 +146,11 @@ async function sendToBot(message) {
     const data = await response.json();
     loading.remove();
 
-    const reply = data.reply || data.error || 'No pude responder.';
+    const reply = data.reply || data.error || 'No pude responder en este momento.';
     addMessage(reply, 'bot');
-  } catch (_) {
+  } catch (_error) {
     loading.remove();
-    addMessage('Hubo un problema de conexión.', 'bot');
+    addMessage('Hubo un problema de conexión con el asistente.', 'bot');
   }
 }
 
@@ -143,11 +159,13 @@ formEl.addEventListener('submit', async (e) => {
 
   const text = inputEl.value.trim();
   if (!text) return;
+
   inputEl.value = '';
 
+  // Reiniciamos timeout con actividad del usuario
   resetInactivityTimer();
 
-  // ⭐ Puntaje
+  // Si estamos esperando puntaje, NO mandamos nada al bot
   if (awaitingScore) {
     addMessage(text, 'user');
 
@@ -165,12 +183,17 @@ formEl.addEventListener('submit', async (e) => {
     return;
   }
 
+  // Primer mensaje = nombre
   if (!userName) {
     userName = text;
     addMessage(text, 'user');
 
     addMessage(
-      `¡Mucho gusto, ${userName}! 👋\n¿Querés ver el plan completo o hacer una consulta puntual?`,
+      `¡Mucho gusto, ${userName}! 👋
+¿Cómo preferís avanzar?
+1) Ver el plan completo (te muestro el índice y elegís qué sección ver).
+2) Que te sugiera opciones concretas.
+3) Contarme una duda puntual y lo vemos juntos.`,
       'bot'
     );
 
@@ -178,6 +201,7 @@ formEl.addEventListener('submit', async (e) => {
     return;
   }
 
+  // Interceptar finalizar → pedir puntaje
   if (isFinishIntent(text)) {
     addMessage(text, 'user');
     awaitingScore = true;
@@ -186,13 +210,15 @@ formEl.addEventListener('submit', async (e) => {
   }
 
   const mappedText = normalizeUserMessage(text);
+
+  // luego de elegir menú inicial, dejamos de mapear 1/2/3
   if (choosingInitialMenu) choosingInitialMenu = false;
 
   questionsAsked.push(mappedText);
   await sendToBot(mappedText);
 });
 
-// Cierre por cambio de pestaña o navegación
+// Si abandona la pestaña: manda lo que haya (sin puntaje si no llegó a ponerlo)
 window.addEventListener('pagehide', () => {
   void sendConversationSummary('abandoned');
 });
@@ -201,4 +227,5 @@ window.addEventListener('pagehide', () => {
 addMessage('¡Hola! Soy el asistente del plan de trabajo de Martín para Product Owner de BIT. 👋', 'bot');
 addMessage('Primero, ¿cómo te llamás?', 'bot');
 
+// Arranca el timer desde el inicio
 resetInactivityTimer();
